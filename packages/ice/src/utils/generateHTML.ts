@@ -29,6 +29,7 @@ export default async function generateHTML(options: Options) {
   try {
     serverEntry = await dynamicImport(entry);
   } catch (err) {
+    consola.error('Dynamic import server entry in generateHTML error.');
     // make error clearly, notice typeof err === 'string'
     throw new Error(`import ${entry} error: ${err}`);
   }

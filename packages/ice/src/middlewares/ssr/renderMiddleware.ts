@@ -41,6 +41,7 @@ export default function createRenderMiddleware(options: Options): Middleware {
         delete require.cache[serverEntry];
         serverModule = await dynamicImport(serverEntry, true);
       } catch (err) {
+        consola.error('Dynamic import server entry in Render middleware error.');
         // make error clearly, notice typeof err === 'string'
         consola.error(`import ${serverEntry} error: ${err}`);
         return;
